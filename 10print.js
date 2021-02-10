@@ -21,7 +21,7 @@ const setup = function() {
     let s = search[i].split('=');
     params[s[0]] = s[1];
   };
-  probability = parseFloat(params.probability, 10) || probability;
+  probability = (parseFloat(params.probability, 10) >= 0 && parseFloat(params.probability) <= 1) ? parseFloat(params.probability, 10) : probability;
   setInterval(draw, interval);
 }
 
